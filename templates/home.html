@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="perfect-scrollbar-off nav-open">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <style>
+    *{
+  margin:0;
+    padding:0;
+}
+
+ html,body{
+  height:100%;
+}
+
+ .header {
+  background-image: url(static/images/bg-2.jpg);
+  -webkit-background-size:cover;
+  background-size:cover;
+  background-position:center center;
+  height:100vh;
+  width:100%;
+   background-color:rgb(120,120,120);
+}
+   
+</style>
+    <title>Aj Home</title>
+  </head>
+  <body>
+    <div class="header">
+  
+    <div id="particles-js"></div>  
+    </div>
+    
+    <script src="{{url_for('static', filename='js/particles.js')}}"></script>
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+   <script src="{{url_for('static', filename='js/particles.min.js')}}"></script>
+    
+  </body>
+</html>
