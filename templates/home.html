@@ -6,7 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+     <link rel="icon" href="{{ url_for('static', filename='images/weblogo.jpg') }}" type="image/x-icon">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href=“https://fonts.googleapis.com/css?family=Roboto 2” rel=“stylesheet”>
      <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Creepster">
     <meta name="theme-color" content="#000000" />
@@ -25,12 +27,12 @@
   -webkit-background-size:cover;
   background-size:cover;
   background-position:center center;
-  
+    object-fit: cover;
    background-color:rgb(120,120,120);
 }
   .maindiv {
-    width: 70%;
-    height: 300px;
+    width: 50%;
+    height: 400px;
      object-fit: cover;
     position: relative;
     left: 50%;
@@ -39,13 +41,13 @@
     background-image: url(static/images/gal-1.jpg);
     background-size: 100% 100%;
     box-shadow: 1px 2px 10px 5px white;
-    animation: slider 7s infinite linear;
+    animation: slider 5s infinite linear;
 }
 
 @keyframes slider{
-    0%{background-image: url(static/images/gal-1.jpg); }
-    50%{background-image: url(static/images/gal-3.jpg); }
-    100%{background-image: url(static/images/myself-2.jpg); }    
+    10%{background-image: url(static/images/gal-1.jpg); }
+    60%{background-image: url(static/images/myself-2.jpg); }
+    100%{background-image: url(static/images/gal-3.jpg); }    
 }
 
  .img {
@@ -56,11 +58,94 @@
   margin-left: auto;
   margin-right: auto;
  }
-   .button{
-     display: flex;
-justify-content: center;
-   }   
-   
+
+ #container1 {
+    max-width: 800px; /* Set a maximum width for the container */
+  margin: 0 auto; /* Center the container */
+  overflow: hidden; /* Hide any overflowing content */
+  text-align: center; /* Center the text within the container */
+
+ }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .social-icons li {
+    list-style: none;
+    margin: 0 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .social-icons li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .social-icons li a:hover {
+    transform: translateY(-5px);
+  }
+
+  .social-icons li a i {
+    display: block;
+  }
+
+  /* Instagram icon specific styles */
+  .social-icons li:nth-child(4) a i {
+    padding: 4px;
+    background: linear-gradient(to right, #f58529, #dd2a7b, #c72e95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+      /* below is the code for about me part */
+.background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #8226df;
+  background-image: url(static/images/bg-3.jpg);
+  overflow: hidden;
+}
+
+.container1 {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  text-align: center;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 50px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+      
 </style>
     <title>Aj Home</title>
   </head>
@@ -68,6 +153,9 @@ justify-content: center;
     <div class="header">
        <div id="particles-js">
         {% include 'navbar.html' %}
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
          
      <h1 class="display-3 text-center" style="color:white">Hello, welcome❤️</h1>
       <img class="img container mt-4" src="static/images/myself.jpg" >
@@ -84,21 +172,70 @@ justify-content: center;
       loop: true
     });
   </script>
-         <div class="maindiv">
-         </div>
-      <h3 class="display-3 text-center mt-4 mb-2" style="color:white">My Resume 📑</h3>
-<div class="button">
-  
-      <a type="button" href="https://drive.google.com/file/d/1c8J6TtnALcaXo8h06MHUpd4zHfmXqfqg/view?usp=sharing" class="btn btn-outline-info text-center">Resume</a>
+     
+  <div class="background">
+  <canvas id="canvas"></canvas>
+  <div class="container1" id="c1">
+    <h1>About Me</h1>
+    <h3 class="fw-medium lead text-center" style="color:white"> 
+      My name is Ajay Biswas. I am a third-year undergraduate student of the Department of Mechanical Engineering enrolled in its B.tech + M.tech (Dual Degree) Course at the Indian Institute of Technology, Kharagpur. As a software enthusiast, I am eager to take the steps to build a value-full career in the field of software development domain.
+      <br>
+      <br>
+      I am passionate about staying up-to-date with the latest trends and technologies in the field, and I am always looking for new challenges to expand my skills. </h3>
+  </div>
 </div>
-   
-      
+         <div class="maindiv" id="c2">
+         </div>
+       <div class="mt-4 fw-medium  mb-4 " id="container1">
+     <h4 class="display-3 text-center mt-4" style="font-family: ‘Roboto’, sans-serif;font-size:xx-large; color:whitesmoke;"><span class="auto-input1"></span> </h4>
+        </div>
+      <h3 class="display-3 text-center mt-4 mb-2" style="color:white">My Resume 📑</h3>
+
+  <div class="container" style="display:flex;justify-content:center;">
+      <a type="button" href="https://drive.google.com/file/d/1c8J6TtnALcaXo8h06MHUpd4zHfmXqfqg/view?usp=sharing" class=" btn btn-outline-info text-center">Resume</a>
+</div>
+  <footer>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com/profile.php?id=100074748354912" target="_blank"><i class="fa-brands fa-facebook fa-flip"></i></a></li>
+          <li><a href="https://twitter.com/AjayBis85462623" target="_blank"><i class="fa-brands fa-square-twitter fa-flip"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/ajay-biswas-8b0832237/" target="_blank"><i class="fa-brands fa-linkedin fa-flip"></i></a></li>
+          <li><a href="https://www.instagram.com/blue_sq4/" target="_blank"><i class="fa-brands fa-instagram fa-flip"></i></a></li>
+        </ul>
+      </div>
+      <p class="fw-lighter" style="color:white;">© All Rights Reserved.<br>
+Ajay Biswas</p>
+    </div>
+  </div>
+</footer>  
       
     </div>
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+    
+    <script>  
+  // Make social media icons clickable
+  document.querySelectorAll('.social-icons li a').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      window.open(link.href, '_blank');
+    });
+  });
+</script>
+         <script>
+    var typed1 = new Typed('.auto-input1', {
+      strings: ['As a web developer with experience in JavaScript, HTML, CSS, and React.js, I have a strong foundation in frontend development. With expertise in creating responsive and user-friendly websites and web applications, I have demonstrated my ability to write clean, efficient, and well-structured code.'],
+      typeSpeed: 50,
+    });
+  </script>
+     
     <script src="{{url_for('static', filename='js/particles.js')}}"></script>
     <script src="{{url_for('static', filename='js/app.js')}}"></script>
+    <script src="{{url_for('static', filename='js/about.js')}}"></script>
+   
+<script src="https://kit.fontawesome.com/2b032f0155.js" crossorigin="anonymous"></script>
+
    <script src="{{url_for('static', filename='js/particles.min.js')}}"></script>
     
   </body>
