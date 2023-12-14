@@ -7,8 +7,8 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
      <link rel="icon" href="{{ url_for('static', filename='images/weblogo.jpg') }}" type="image/x-icon">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link href=“https://fonts.googleapis.com/css?family=Roboto 2” rel=“stylesheet”>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto 2" rel="stylesheet">
      <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Creepster">
     <meta name="theme-color" content="#000000" />
@@ -46,7 +46,7 @@
 
 @keyframes slider{
     10%{background-image: url(static/images/gal-1.jpg); }
-    60%{background-image: url(static/images/myself-2.jpg); }
+    60%{background-image: url(static/images/myself.jpg); }
     100%{background-image: url(static/images/gal-3.jpg); }    
 }
 
@@ -111,7 +111,9 @@
   width: 100%;
   height: 100vh;
   background-color: #563e79;
-  /*background-image: url(static/images/bg-3.jpg);*/
+  background-image: url(static/images/bg-6.jpg);
+  background-blend-mode: normal;
+  object-fit: fill;
   overflow: hidden;
 }
 
@@ -143,7 +145,12 @@ canvas {
   width: 100%;
   height: 100%;
 }
-
+      @media (max-width: 767px) {
+          /* Styles specific to mobile devices go here */
+        #container1{
+          display: none;
+        }
+      }
 
       
 </style>
@@ -152,13 +159,11 @@ canvas {
   <body>
     <div class="header">
        <div id="particles-js">
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         {% include 'navbar.html' %}
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-         
+       
      <h1 class="display-3 text-center" style="color:white">Hello, welcome❤️</h1>
-      <img class="img container mt-4" src="static/images/myself.jpg" >
+      <img class="img container mt-4" src="static/images/myself-2.jpg" >
      
 
         <h1 class="display-3 text-center mt-4" style="color:white">I'm <span class="auto-input"></span> </h1>
@@ -176,7 +181,7 @@ canvas {
   <div class="background">
   <canvas id="canvas"></canvas>
   <div class="container1" id="c1">
-    <h1>About Me</h1>
+    <h1>About Me🚀</h1>
     <h3 class="fw-medium lead text-center" style="color:#a5a9ac"> 
       My name is Ajay Biswas. I am a third-year undergraduate student of the Department of Mechanical Engineering enrolled in its B.tech + M.tech (Dual Degree) Course at the Indian Institute of Technology, Kharagpur. As a software enthusiast, I am eager to take the steps to build a value-full career in the field of software development domain.
       <br>
@@ -184,7 +189,7 @@ canvas {
       I am passionate about staying up-to-date with the latest trends and technologies in the field, and I am always looking for new challenges to expand my skills. </h3>
     <br>
     <div class="mt-4 fw-medium  mb-4 " id="container1">
-       <h4 class="display-3 text-center mt-4" style="font-family: ‘Roboto’, sans-serif;font-size:xx-large; color:whitesmoke;"><span class="auto-input1"></span> </h4>
+       <h4 class="display-3 text-center mt-4"  style="font-family: ‘Roboto’, sans-serif;font-size:xx-large; color:whitesmoke;"><span class="auto-input1"></span> </h4>
           </div>
   </div>
 </div>
@@ -194,7 +199,7 @@ canvas {
       <h3 class="display-3 text-center mt-4 mb-2" style="color:white">My Resume 📑</h3>
 
   <div class="container" style="display:flex;justify-content:center;">
-      <a type="button" href="https://drive.google.com/file/d/1vVXV-yfbJA2HpAVc-05Ev3bvZqZFct8s/view?usp=sharing" class=" btn btn-outline-info text-center">Resume</a>
+      <a type="button" href="https://drive.google.com/file/d/1vVXV-yfbJA2HpAVc-05Ev3bvZqZFct8s/view?usp=sharing" class=" btn btn-outline-info text-center" target="_blank">Resume</a>
 </div>
   <footer>
   <div class="container mt-4">
@@ -239,6 +244,11 @@ Ajay Biswas</p>
 <script src="https://kit.fontawesome.com/2b032f0155.js" crossorigin="anonymous"></script>
 
    <script src="{{url_for('static', filename='js/particles.min.js')}}"></script>
-    
+    <!-- Use the same version for both CSS and JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+
+
   </body>
 </html>
