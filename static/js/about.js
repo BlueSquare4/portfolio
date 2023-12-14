@@ -17,8 +17,8 @@ function init() {
 function draw() {
   context.clearRect(0, 0, width, height);
   context.beginPath();
-  context.strokeStyle = "#fce570";
-  context.lineWidth = 10;
+  context.strokeStyle = "#ecc969";
+  context.lineWidth = 100;
   for (let i = 0; i < 360; i += 10) {
     const x = centerX + radius * Math.cos((i + frameCount) * (Math.PI / 180));
     const y = centerY + radius * Math.sin((i + frameCount) * (Math.PI / 180));
